@@ -32,15 +32,20 @@ Now you can browse the [API](http://localhost:8000/api/) or start on the [landin
 Create a kubernetes manifest for a pod which will containa ToDo app container:
 
 1. Fork this repository.
-1. Create a `confgiMap.yml` file for ConfigMap resource.
-1. ConfigMap requirements:
-3.1. ConfigMap should have a `PYTHONUNBUFFERED` values set
-3.2. Deployment shoyld use this ConfigMap and set `PYTHONUNBUFFERED` environment variable
-1. Create a `secret.yml` file for Secret resource.
-1. Secret requirements:
-5.1. Secret should have a `SECRET_KEY` value set
-5.2. Deployment should use this Secret and set `SECRET_KEY` environment variable
-5.3. Application should use this secret instead of one hardcoded in `settings.py`
+1. Create a `pv.yml` file for `PersistentVolume` resource.
+1. `PersistentVolume` requirements:
+3.1. `PersistentVolume` class `standard`
+3.2. `PersistentVolume` persistentVolumeReclaimPolicy `Delete`
+3.3. `PersistentVolume` accessModes `ReadWriteMany`
+3.4. `PersistentVolume` capacity `1Gi`
+3.5. `PersistentVolume` type `hostPath`
+1. Create a `pvc.yml` file for `PersitentVolumeClaim` resource.
+1. `PersitentVolumeClaim` requirements:
+5.1. `PersitentVolumeClaim` should claim a `PersistentVolume` from a pvc file.
+5.2. `Deployment` should use `PersistentVolume` throught the `PersitentVolumeClaim`
+5.3 `PersistentVolume` mount path should be `/app/data`
+1. Mount existing configMap as file into /app/configs folder inside container.
+1. Mount existing secret as files into /app/secrets folder inside container
 1. `README.md` should have commands to apply all the changes
 1. `README.md` should have instructuions on how to validate the changes
 1. Create PR with your changes and attach it for validation on a platform.
