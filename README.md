@@ -40,9 +40,9 @@ Create a kubernetes manifest for a pod which will containa ToDo app container:
     4. `PersistentVolume` should use `hostPath`
 1. Create a `pvc.yml` file for `PersitentVolumeClaim` resource.
 1. `PersitentVolumeClaim` requirements:
-5.1. `PersitentVolumeClaim` should claim a `PersistentVolume` from a pvc file.
-5.2. `Deployment` should use `PersistentVolume` throught the `PersitentVolumeClaim`
-5.3 `PersistentVolume` mount path should be `/app/data`
+    1. `PersitentVolumeClaim` should claim a `PersistentVolume` from a pvc file.
+    2. `Deployment` should use `PersistentVolume` throught the `PersitentVolumeClaim`
+    3. `PersistentVolume` mount path should be `/app/data`
 1. Mount existing configMap as file into /app/configs folder inside container. It should be a read-only mount
 1. Mount existing secret as files into /app/secrets folder inside container. It should be a read-only mount
 1. `README.md` should have commands to apply all the changes
