@@ -46,7 +46,7 @@ Create a kubernetes manifest for a pod which will containa ToDo app container:
 1. Other Requirements
     1. Mount existing configMap as file into /app/configs folder inside container. It should be a read-only mount
     2. Mount existing secret as files into /app/secrets folder inside container. It should be a read-only mount
-1. `README.md` should have commands to apply all components
+1. `bootstrap.sh` should containe all the commands to deploy all the required resources in the cluster
 1. `README.md` should have instructuions on how to validate:
     1. App is running
     1. ConfigMap data is mounted as files in a right order
