@@ -7,7 +7,7 @@ spec:
   storageClassName: hostpath
   persistentVolumeReclaimPolicy: Delete
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   capacity:
     storage: 2Gi
   hostPath:
